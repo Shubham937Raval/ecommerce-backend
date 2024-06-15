@@ -57,7 +57,7 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-    const { userId } = req.user; // Accessing req.user set by the middleware
+    const { userId } = req.user; 
     try {
         await pool.query('UPDATE users SET token = NULL WHERE id = $1', [userId]);
         res.json({ message: 'Logged out successfully' });
